@@ -1,0 +1,11 @@
+node_modules
+dist
+.vercel
+*.local
+.DS_Store
+# Sources brutes lourdes (restent en local, cf. docs/DECISIONS.md)
+docs/photos/*.png
+docs/photos/*.jpeg
+docs/photos/*.jpg
+docs/*.png
+docs/*.odt
