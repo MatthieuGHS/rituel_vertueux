@@ -63,7 +63,6 @@ export function MomentsGallery() {
             pin: true,
             scrub: 0.7,
             invalidateOnRefresh: true,
-            anticipatePin: 1,
           },
         })
       })
@@ -75,24 +74,24 @@ export function MomentsGallery() {
 
   return (
     <section ref={ref} className="bg-cream-deep" aria-labelledby="moments-title">
-      <div data-pin className="overflow-hidden py-20 lg:flex lg:h-dvh lg:flex-col lg:justify-center lg:py-0">
+      <div data-pin className="overflow-hidden py-20 lg:flex lg:h-dvh lg:flex-col lg:justify-center lg:pb-6 lg:pt-24">
         <Container size="wide">
-          <h2 id="moments-title" className="display-lg max-w-3xl">
+          <h2 id="moments-title" className="display-lg max-w-3xl lg:max-w-none">
             Un rituel qui vous suit partout
           </h2>
-          <p className="mt-4 max-w-xl text-lg text-ink/85">
+          <p className="mt-4 max-w-xl text-lg text-ink/85 lg:mt-2">
             Chaud le matin, glacé l’été, dans une gourde ou un shaker : le rituel s’adapte à vos journées.
           </p>
         </Container>
         <div
-          className="mt-10 snap-x snap-mandatory overflow-x-auto scroll-px-4 pb-4 scrollbar-none lg:snap-none lg:overflow-visible lg:pb-0"
+          className="mt-10 lg:mt-8 snap-x snap-mandatory overflow-x-auto scroll-px-4 pb-4 scrollbar-none lg:snap-none lg:overflow-visible lg:pb-0"
           tabIndex={0}
           aria-label="Moments de vie, faire défiler horizontalement"
           role="region"
         >
           <ul data-track className="flex w-max gap-4 px-4 sm:gap-6 sm:px-6 lg:gap-8 lg:pl-[max(2rem,calc((100vw-80rem)/2+2rem))]">
             {moments.map((moment) => (
-              <li key={moment.title} className="w-[78vw] max-w-[22rem] shrink-0 snap-start lg:w-[26rem] lg:max-w-none">
+              <li key={moment.title} className="w-[78vw] max-w-[22rem] shrink-0 snap-start lg:w-[clamp(14rem,calc((100dvh-26rem)*0.76),26rem)] lg:max-w-none">
                 <ResponsiveImage
                   image={photo(moment.image)}
                   alt={moment.alt}

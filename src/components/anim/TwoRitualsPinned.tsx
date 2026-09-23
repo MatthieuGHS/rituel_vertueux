@@ -40,7 +40,6 @@ export default function TwoRitualsPinned() {
             end: '+=200%',
             pin: true,
             scrub: 0.8,
-            anticipatePin: 1,
           },
         })
 
