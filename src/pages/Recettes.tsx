@@ -1,6 +1,6 @@
 import { ChevronDown } from 'lucide-react'
 import { useState } from 'react'
-import { photo } from '../assets/images'
+import { photo } from '../assets/images/photos'
 import { PageHero } from '../components/sections/PageHero'
 import { RecipeCard } from '../components/sections/RecipeCard'
 import { Container } from '../components/ui/Container'

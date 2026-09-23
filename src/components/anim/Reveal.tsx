@@ -1,5 +1,4 @@
-import { useRef, type ElementType, type ReactNode } from 'react'
-import { gsap, MEDIA, syncLenis, useGSAP } from './gsap'
+import { useEffect, useRef, type ElementType, type ReactNode } from 'react'
 
 interface RevealProps {
   children: ReactNode
@@ -12,20 +11,23 @@ interface RevealProps {
 
 /**
  * Apparition sobre (fondu + léger translate) au scroll.
- * Le contenu est visible par défaut : l'état initial n'est posé que si JS et le mouvement sont autorisés.
+ * GSAP est chargé à la demande (hors chemin critique) ; un bloc déjà visible au moment
+ * où GSAP arrive n'est pas animé, pour ne jamais masquer un contenu déjà affiché.
  */
 export function Reveal({ children, as: Tag = 'div', className, stagger = false, delay = 0 }: RevealProps) {
   const ref = useRef<HTMLElement>(null)
 
-  useGSAP(
-    () => {
+  useEffect(() => {
+    let cancelled = false
+    let revert: (() => void) | undefined
+    import('./gsap').then(({ gsap, MEDIA, syncLenis }) => {
+      const el = ref.current
+      if (cancelled || !el) return
+      if (el.getBoundingClientRect().top < window.innerHeight * 0.92) return
       syncLenis()
       const mm = gsap.matchMedia()
       mm.add(MEDIA.motion, () => {
-        const el = ref.current
-        if (!el) return
-        const targets = stagger ? Array.from(el.children) : el
-        gsap.from(targets, {
+        gsap.from(stagger ? Array.from(el.children) : el, {
           autoAlpha: 0,
           y: 18,
           duration: 0.7,
@@ -35,10 +37,13 @@ export function Reveal({ children, as: Tag = 'div', className, stagger = false, 
           scrollTrigger: { trigger: el, start: 'top 88%', once: true },
         })
       })
-      return () => mm.revert()
-    },
-    { scope: ref },
-  )
+      revert = () => mm.revert()
+    })
+    return () => {
+      cancelled = true
+      revert?.()
+    }
+  }, [stagger, delay])
 
   return (
     <Tag ref={ref} className={className}>

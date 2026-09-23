@@ -1,4 +1,4 @@
-import { cutout } from '../assets/images'
+import { cutout } from '../assets/images/cutouts'
 import { ButtonLink } from '../components/ui/Button'
 import { Container } from '../components/ui/Container'
 import { ResponsiveImage } from '../components/ui/ResponsiveImage'

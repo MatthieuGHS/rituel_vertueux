@@ -33,7 +33,7 @@ export function Header() {
       >
         <div className="mx-auto flex h-18 w-full max-w-7xl items-center gap-4 px-4 sm:px-6 lg:h-20 lg:px-8">
           <Link to="/" className="-ml-1 flex shrink-0 items-center rounded-full p-1" aria-label="Rituel Vertueux, accueil">
-            <Logo variant="full" decorative className="hidden size-16 lg:block" />
+            <Logo variant="full" decorative className="hidden size-[4.5rem] lg:block" />
             <Logo variant="mark" decorative className="size-10 lg:hidden" />
           </Link>
 

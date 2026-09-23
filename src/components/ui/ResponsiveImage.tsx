@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type CSSProperties } from 'react'
 import { preload } from 'react-dom'
-import type { ImageAsset } from '../../assets/images'
+import type { ImageAsset } from '../../assets/images/types'
 import { cn } from '../../lib/cn'
 
 interface ResponsiveImageProps {

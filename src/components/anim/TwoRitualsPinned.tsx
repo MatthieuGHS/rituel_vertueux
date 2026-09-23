@@ -44,24 +44,14 @@ export default function TwoRitualsPinned() {
           },
         })
 
-        // Valeurs de départ explicites (fromTo, immediateRender: false) : l'entrée ci-dessus
-        // modifie ces éléments après la création de cette timeline.
-        const later = { immediateRender: false }
+        // La sortie de [RE]BELLE vise les éléments internes (data-inner) : l'entrée ci-dessus anime
+        // les conteneurs, les deux timelines ne se disputent donc jamais les mêmes propriétés.
         tl.to({}, { duration: 0.6 })
-          .fromTo(
-            q('[data-stick="rebelle"]'),
-            { rotation: -8, scale: 1, autoAlpha: 1, yPercent: 0 },
-            { rotation: 170, scale: 0.7, autoAlpha: 0, duration: 1.1, ease: 'power1.in', ...later },
-          )
-          .fromTo(q('[data-text="rebelle"]'), { autoAlpha: 1, y: 0 }, { autoAlpha: 0, y: -30, duration: 0.5, ...later }, '<')
-          .fromTo(q('[data-layer="reconfort"]'), { autoAlpha: 0 }, { autoAlpha: 1, duration: 1, ...later }, '<0.2')
-          .fromTo(
-            q('[data-stick="reconfort"]'),
-            { autoAlpha: 0, rotation: -160, scale: 0.7 },
-            { autoAlpha: 1, rotation: 8, scale: 1, duration: 1.1, ease: 'power2.out', ...later },
-            '<0.3',
-          )
-          .fromTo(q('[data-text="reconfort"]'), { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.8, ease: 'power2.out', ...later }, '<0.5')
+          .to(q('[data-stick="rebelle"] > [data-inner]'), { rotation: 170, scale: 0.7, autoAlpha: 0, duration: 1.1, ease: 'power1.in' })
+          .to(q('[data-text="rebelle"] > [data-inner]'), { autoAlpha: 0, y: -30, duration: 0.5 }, '<')
+          .to(q('[data-layer="reconfort"]'), { autoAlpha: 1, duration: 1 }, '<0.2')
+          .to(q('[data-stick="reconfort"]'), { autoAlpha: 1, rotation: 8, scale: 1, duration: 1.1, ease: 'power2.out' }, '<0.3')
+          .to(q('[data-text="reconfort"]'), { autoAlpha: 1, y: 0, duration: 0.8, ease: 'power2.out' }, '<0.5')
           .to({}, { duration: 0.8 })
       })
       refreshScrollTriggers()
@@ -81,7 +71,9 @@ export default function TwoRitualsPinned() {
       <div className="relative mx-auto grid h-full max-w-6xl grid-cols-[0.85fr_1.15fr] items-center gap-12 px-8">
         <div className="relative h-[78%]">
           <div data-stick="rebelle" className="absolute inset-0 flex items-center justify-center">
-            <RitualStick product={products.rebelle} className="h-full w-auto max-w-none" />
+            <div data-inner className="flex h-full items-center justify-center">
+              <RitualStick product={products.rebelle} className="h-full w-auto max-w-none" />
+            </div>
           </div>
           <div data-stick="reconfort" className="absolute inset-0 flex items-center justify-center">
             <RitualStick product={products.reconfort} className="h-full w-auto max-w-none" />
@@ -89,7 +81,9 @@ export default function TwoRitualsPinned() {
         </div>
         <div className="relative grid">
           <div data-text="rebelle" className="col-start-1 row-start-1">
-            <RitualText product={products.rebelle} />
+            <div data-inner>
+              <RitualText product={products.rebelle} />
+            </div>
           </div>
           <div data-text="reconfort" className="col-start-1 row-start-1">
             <RitualText product={products.reconfort} />

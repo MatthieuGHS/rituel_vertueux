@@ -1,4 +1,4 @@
-import { cutout } from '../../../assets/images'
+import { cutout } from '../../../assets/images/cutouts'
 import type { Product } from '../../../data/products'
 import { Badge } from '../../ui/Badge'
 import { ButtonLink } from '../../ui/Button'

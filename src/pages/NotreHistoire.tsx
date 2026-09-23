@@ -1,4 +1,4 @@
-import { photo } from '../assets/images'
+import { photo } from '../assets/images/photos'
 import { Reveal } from '../components/anim/Reveal'
 import { PageHero } from '../components/sections/PageHero'
 import { ButtonLink } from '../components/ui/Button'

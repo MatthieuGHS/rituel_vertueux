@@ -1,5 +1,5 @@
 import type { ProductId } from './products'
-import type { PhotoKey } from '../assets/images'
+import type { PhotoKey } from '../assets/images/types'
 
 export interface Recipe {
   id: string

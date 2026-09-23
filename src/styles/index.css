@@ -163,6 +163,27 @@
   }
 }
 
+/* Intro du hero (CSS, sans attendre le JS) : lignes du titre puis texte. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-line {
+    animation: hero-line 0.9s var(--ease-soft) both;
+  }
+  .hero-fade {
+    animation: hero-fade 0.7s var(--ease-soft) 0.5s both;
+  }
+}
+@keyframes hero-line {
+  from {
+    transform: translateY(110%);
+  }
+}
+@keyframes hero-fade {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
 /* Lenis */
 html.lenis,
 html.lenis body {

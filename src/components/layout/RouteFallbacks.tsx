@@ -16,7 +16,7 @@ export function RouteError() {
     <div className="flex min-h-dvh flex-col items-center justify-center gap-4 bg-cream px-6 text-center">
       <Logo variant="mark" decorative className="size-14" />
       <h1 className="display-md">La page n’a pas pu s’afficher</h1>
-      <p className="text-ink/80">{message} Rechargez la page ou revenez à l’accueil.</p>
+      <p className="text-ink/80">{message} Actualisez la page ou revenez à l’accueil.</p>
       <Link to="/" className="label rounded-full bg-terracotta px-6 py-3 text-[1.2rem] font-bold text-white hover:bg-terracotta-dark">
         Retour à l’accueil
       </Link>

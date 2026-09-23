@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import type { ImageAsset } from '../../assets/images'
+import type { ImageAsset } from '../../assets/images/types'
 import { cn } from '../../lib/cn'
 import { Container } from '../ui/Container'
 import { ResponsiveImage } from '../ui/ResponsiveImage'

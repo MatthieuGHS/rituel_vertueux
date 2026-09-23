@@ -1,14 +1,8 @@
-import { IngredientAssembly } from '../components/anim/IngredientAssembly'
-import { KineticBand } from '../components/anim/KineticBand'
-import { MomentsGallery } from '../components/anim/MomentsGallery'
-import { Concept } from '../components/sections/home/Concept'
+import { lazy, Suspense } from 'react'
 import { HomeHero } from '../components/sections/home/HomeHero'
-import { RecipesTeaser } from '../components/sections/home/RecipesTeaser'
-import { ShopCta } from '../components/sections/home/ShopCta'
-import { ThreeGestures } from '../components/sections/home/ThreeGestures'
-import { TwoRituals } from '../components/sections/home/TwoRituals'
-import { InstagramGrid } from '../components/sections/InstagramGrid'
 import { useSeo } from '../lib/seo'
+
+const HomeRest = lazy(() => import('../components/sections/home/HomeRest'))
 
 export default function Home() {
   useSeo(
@@ -18,15 +12,9 @@ export default function Home() {
   return (
     <>
       <HomeHero />
-      <Concept />
-      <TwoRituals />
-      <IngredientAssembly />
-      <KineticBand />
-      <ThreeGestures />
-      <MomentsGallery />
-      <RecipesTeaser />
-      <InstagramGrid />
-      <ShopCta />
+      <Suspense fallback={<div className="min-h-dvh bg-cream-deep" />}>
+        <HomeRest />
+      </Suspense>
     </>
   )
 }

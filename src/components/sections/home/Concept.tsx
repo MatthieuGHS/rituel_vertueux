@@ -1,5 +1,5 @@
 import { Leaf, Sparkles, Heart } from 'lucide-react'
-import { photo } from '../../../assets/images'
+import { photo } from '../../../assets/images/photos'
 import { Reveal } from '../../anim/Reveal'
 import { Container } from '../../ui/Container'
 import { ResponsiveImage } from '../../ui/ResponsiveImage'

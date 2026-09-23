@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import { cutout } from '../assets/images'
+import { cutout } from '../assets/images/cutouts'
 import type { ProductId } from '../data/products'
 import { prefersReducedMotion } from '../lib/smooth-scroll'
 import { useCart } from '../store/cart'

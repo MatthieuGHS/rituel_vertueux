@@ -1,5 +1,6 @@
 import { CupSoda, Flame, Snowflake } from 'lucide-react'
-import { photo, type PhotoKey } from '../assets/images'
+import { photo } from '../assets/images/photos'
+import type { PhotoKey } from '../assets/images/types'
 import { Reveal } from '../components/anim/Reveal'
 import { PageHero } from '../components/sections/PageHero'
 import { ButtonLink } from '../components/ui/Button'

@@ -1,4 +1,5 @@
-import { photo, type PhotoKey } from '../../../assets/images'
+import { photo } from '../../../assets/images/photos'
+import type { PhotoKey } from '../../../assets/images/types'
 import { Reveal } from '../../anim/Reveal'
 import { Container } from '../../ui/Container'
 import { ResponsiveImage } from '../../ui/ResponsiveImage'

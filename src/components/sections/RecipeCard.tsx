@@ -1,6 +1,6 @@
 import { Clock } from 'lucide-react'
 import type { ReactNode } from 'react'
-import { photo } from '../../assets/images'
+import { photo } from '../../assets/images/photos'
 import { products } from '../../data/products'
 import type { Recipe } from '../../data/recipes'
 import { ResponsiveImage } from '../ui/ResponsiveImage'

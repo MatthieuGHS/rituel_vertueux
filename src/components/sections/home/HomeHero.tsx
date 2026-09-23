@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { cutout } from '../../../assets/images'
+import { cutout } from '../../../assets/images/cutouts'
 import type { IngredientId } from '../../../data/ingredients'
 import { useHeroMotion } from '../../anim/useHeroMotion'
 import { ButtonLink } from '../../ui/Button'
@@ -25,15 +25,15 @@ export function HomeHero() {
       <Container size="wide" className="grid items-center gap-8 lg:grid-cols-[1.1fr_1fr]">
         <div className="relative z-10">
           <h1 className="display-xl text-forest" data-hero-title>
-            <span className="block overflow-hidden pb-[0.08em]"><span className="block" data-line>Votre bien-être</span></span>
-            <span className="block overflow-hidden pb-[0.08em]"><span className="block" data-line>devient</span></span>
-            <span className="block overflow-hidden pb-[0.08em]"><span className="block text-terracotta" data-line>un rituel</span></span>
+            <span className="block overflow-hidden pb-[0.08em]"><span className="hero-line block" data-line style={{ animationDelay: '80ms' }}>Votre bien-être</span></span>
+            <span className="block overflow-hidden pb-[0.08em]"><span className="hero-line block" data-line style={{ animationDelay: '200ms' }}>devient</span></span>
+            <span className="block overflow-hidden pb-[0.08em]"><span className="hero-line block text-terracotta" data-line style={{ animationDelay: '320ms' }}>un rituel</span></span>
           </h1>
-          <p className="mt-7 max-w-lg text-lg leading-relaxed text-ink/90 sm:text-xl" data-hero-fade>
+          <p className="hero-fade mt-7 max-w-lg text-lg leading-relaxed text-ink/90 sm:text-xl" data-hero-fade>
             Deux boissons fonctionnelles en sticks, [RE]BELLE et [RE]CONFORT, pour associer plaisir et bien-être au
             quotidien. Un stick, 250&nbsp;ml d’eau, et c’est prêt.
           </p>
-          <div className="mt-9 flex flex-wrap gap-3" data-hero-fade>
+          <div className="hero-fade mt-9 flex flex-wrap gap-3" data-hero-fade style={{ animationDelay: '620ms' }}>
             <ButtonLink to="/rituels" size="lg">
               Découvrir les rituels
             </ButtonLink>

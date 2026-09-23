@@ -1,7 +1,9 @@
 import { Clock, Droplets, Package, ShieldAlert, Truck } from 'lucide-react'
 import { useState } from 'react'
 import { Link, useParams } from 'react-router'
-import { cutout, photo, type PhotoKey } from '../assets/images'
+import { photo } from '../assets/images/photos'
+import { cutout } from '../assets/images/cutouts'
+import type { PhotoKey } from '../assets/images/types'
 import { Reveal } from '../components/anim/Reveal'
 import { AddToCartButton } from '../components/sections/AddToCartButton'
 import { Badge } from '../components/ui/Badge'
@@ -139,12 +141,12 @@ function ProductView({ id }: { id: ProductId }) {
           </div>
           <dl className="grid gap-4 self-start sm:grid-cols-2 lg:grid-cols-1">
             {facts.map(({ icon: Icon, title, text }) => (
-              <div key={title} className="flex gap-4 rounded-2xl bg-cream p-5">
-                <Icon aria-hidden="true" className="mt-0.5 size-6 shrink-0 text-terracotta-dark" />
-                <div>
-                  <dt className="label text-lg font-bold text-forest">{title}</dt>
-                  <dd className="mt-1 text-ink/90">{text}</dd>
-                </div>
+              <div key={title} className="rounded-2xl bg-cream p-5">
+                <dt className="label flex items-center gap-3 text-lg font-bold text-forest">
+                  <Icon aria-hidden="true" className="size-6 shrink-0 text-terracotta-dark" />
+                  {title}
+                </dt>
+                <dd className="mt-1 pl-9 text-ink/90">{text}</dd>
               </div>
             ))}
           </dl>

@@ -1,6 +1,6 @@
 import { Trash2 } from 'lucide-react'
 import { Link } from 'react-router'
-import { cutout } from '../../assets/images'
+import { cutout } from '../../assets/images/cutouts'
 import { products } from '../../data/products'
 import { formatPrice } from '../../lib/format'
 import { useCart } from '../../store/cart'

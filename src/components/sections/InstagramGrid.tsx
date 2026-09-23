@@ -1,4 +1,5 @@
-import { photo, type PhotoKey } from '../../assets/images'
+import { photo } from '../../assets/images/photos'
+import type { PhotoKey } from '../../assets/images/types'
 import { Container } from '../ui/Container'
 import { InstagramIcon, INSTAGRAM_HANDLE, INSTAGRAM_URL } from '../ui/InstagramIcon'
 import { ResponsiveImage } from '../ui/ResponsiveImage'

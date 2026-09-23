@@ -1,6 +1,6 @@
 import { useRef, type CSSProperties } from 'react'
 import { Link } from 'react-router'
-import { cutout } from '../../assets/images'
+import { cutout } from '../../assets/images/cutouts'
 import { ingredients, type IngredientId } from '../../data/ingredients'
 import { Container } from '../ui/Container'
 import { IngredientIllustration } from '../ui/IngredientIllustration'

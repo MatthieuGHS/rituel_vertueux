@@ -1,5 +1,5 @@
 import { Link } from 'react-router'
-import { cutout } from '../../assets/images'
+import { cutout } from '../../assets/images/cutouts'
 import type { Product } from '../../data/products'
 import { Badge } from '../ui/Badge'
 import { Price } from '../ui/Price'
@@ -53,7 +53,7 @@ export function ProductCard({ product, headingLevel: Heading = 'h2' }: ProductCa
         </div>
         <div className="mt-auto flex flex-wrap items-center gap-3 pt-2">
           <AddToCartButton product={product} />
-          <Link to={product.path} className="inline-flex min-h-12 items-center px-2 font-medium text-terracotta-dark underline-offset-4 hover:underline">
+          <Link to={product.path} className="inline-flex min-h-12 items-center px-2 font-medium text-forest underline underline-offset-4 hover:text-terracotta-dark">
             Voir la fiche
           </Link>
         </div>
