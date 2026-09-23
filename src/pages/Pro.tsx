@@ -61,7 +61,7 @@ export default function Pro() {
         tone="deep"
         intro={
           <p>
-            Épiceries fines, concept stores, salles de sport, pharmacies et parapharmacies, cafés : retrouvez ici les
+            Épiceries fines, concept stores, salles de sport, cafés, hôtels et spas : retrouvez ici les
             informations techniques de la gamme et contactez-nous pour la distribuer.
           </p>
         }
@@ -164,7 +164,7 @@ export default function Pro() {
                 <option value="">Choisir…</option>
                 <option>Épicerie fine / concept store</option>
                 <option>Salle de sport</option>
-                <option>Pharmacie / parapharmacie</option>
+                <option>Hôtel / spa</option>
                 <option>Café / restaurant</option>
                 <option>Autre</option>
               </SelectField>

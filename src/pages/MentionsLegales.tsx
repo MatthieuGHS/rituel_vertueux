@@ -24,7 +24,7 @@ export default function MentionsLegales() {
         <h2>Directeur de la publication</h2>
         <p>Équipe projet Rituel Vertueux (fictif).</p>
         <h2>Hébergement</h2>
-        <p>Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis.</p>
+        <p>Plateforme d’hébergement Vercel (coordonnées à compléter si le site est publié).</p>
         <h2>Propriété intellectuelle</h2>
         <p>
           Les visuels, logos et textes présentés sur ce site ont été créés pour le projet. Toute réutilisation hors du
