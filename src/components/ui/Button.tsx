@@ -1,4 +1,4 @@
-import type { ButtonHTMLAttributes, ReactNode } from 'react'
+import type { ButtonHTMLAttributes, ReactNode, Ref } from 'react'
 import { Link, type LinkProps } from 'react-router'
 import { cn } from '../../lib/cn'
 
@@ -32,6 +32,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: Variant
   size?: Size
   children: ReactNode
+  ref?: Ref<HTMLButtonElement>
 }
 
 export function Button({ variant = 'primary', size = 'md', className, type = 'button', ...props }: ButtonProps) {

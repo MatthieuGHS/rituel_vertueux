@@ -9,3 +9,4 @@ docs/photos/*.jpeg
 docs/photos/*.jpg
 docs/*.png
 docs/*.odt
+.playwright-mcp

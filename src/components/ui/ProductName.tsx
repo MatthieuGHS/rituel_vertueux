@@ -12,7 +12,7 @@ interface ProductNameProps {
 export function ProductName({ product, as: Tag = 'span', className }: ProductNameProps) {
   return (
     <Tag className={cn('font-label font-bold uppercase leading-[0.9] tracking-[0.01em]', className)}>
-      <span className="font-semibold opacity-80">[RE]</span>
+      [RE]
       {product.suffix}
     </Tag>
   )

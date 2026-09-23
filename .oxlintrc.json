@@ -1,10 +1,31 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "jsx-a11y", "typescript", "oxc", "unicorn"],
-  "categories": { "correctness": "error", "suspicious": "warn" },
+  "plugins": [
+    "react",
+    "jsx-a11y",
+    "typescript",
+    "oxc",
+    "unicorn"
+  ],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn"
+  },
   "rules": {
     "jsx-a11y/prefer-tag-over-role": "off",
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "jsx-a11y/no-noninteractive-tabindex": [
+      "error",
+      {
+        "roles": [
+          "region"
+        ],
+        "tags": []
+      }
+    ]
   },
-  "ignorePatterns": ["dist", "node_modules"]
+  "ignorePatterns": [
+    "dist",
+    "node_modules"
+  ]
 }

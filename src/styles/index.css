@@ -121,7 +121,7 @@
   }
 
   .display-xl {
-    font-size: clamp(3rem, 1.6rem + 6.4vw, 7.5rem);
+    font-size: clamp(3rem, 1.6rem + 5.2vw, 6.4rem);
     font-weight: 650;
     line-height: 0.95;
   }
