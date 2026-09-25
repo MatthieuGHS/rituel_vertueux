@@ -11,9 +11,9 @@ import { cn } from '../lib/cn'
 import { useSeo } from '../lib/seo'
 
 const modes = [
-  { icon: Flame, title: 'Chaud', text: 'Eau chaude, non bouillante. [RE]CONFORT prend des airs de chocolat chaud, [RE]BELLE d’infusion rosée.' },
-  { icon: CupSoda, title: 'Froid', text: 'Eau fraîche, un shaker ou une gourde : le plus simple pour la journée.' },
-  { icon: Snowflake, title: 'Glacé', text: 'Diluez dans un fond d’eau, puis versez sur des glaçons. Idéal l’été.' },
+  { icon: Flame, title: 'Chaud', text: 'Eau ou lait chaud, non bouillant. [RE]CONFORT prend des airs de chocolat chaud, [RE]BELLE d’infusion rosée.' },
+  { icon: CupSoda, title: 'Froid', text: 'Eau fraîche ou lait froid, un shaker ou une gourde : le plus simple pour la journée.' },
+  { icon: Snowflake, title: 'Glacé', text: 'Diluez dans un fond d’eau ou de lait, puis versez sur des glaçons. Idéal l’été.' },
 ]
 
 const moments: Array<{ title: string; text: string; image: PhotoKey; alt: string }> = [

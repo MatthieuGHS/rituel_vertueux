@@ -18,7 +18,7 @@ export default function Recettes() {
     <>
       <PageHero
         title="Recettes"
-        intro={<p>Le rituel se boit à l’eau, mais il se prête aussi à quelques variations gourmandes. Six idées, prêtes en cinq minutes maximum.</p>}
+        intro={<p>Le rituel se prépare à l’eau ou au lait de votre choix, et se prête aussi à quelques variations gourmandes. Six idées, prêtes en cinq minutes maximum.</p>}
         image={photo('reconfort-smoothie')}
         imageAlt="Smoothie banane-cacao dans un verre, à côté d’un stick [RE]CONFORT et de rondelles de banane"
       />
@@ -71,7 +71,7 @@ export default function Recettes() {
           ))}
         </ul>
         <p className="mt-10 max-w-2xl text-sm text-ink/75">
-          Préparation de référence : 1 stick dans 250 ml d’eau froide ou chaude. Les recettes ci-dessus sont des suggestions de dégustation.
+          Préparation de référence : 1 stick dans 250 ml d’eau froide ou chaude, ou de lait de votre choix. Les recettes ci-dessus sont des suggestions de dégustation.
         </p>
       </Container>
     </>

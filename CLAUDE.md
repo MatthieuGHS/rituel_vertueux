@@ -40,15 +40,16 @@ design-system/rituel-vertueux/MASTER.md  tokens, contrastes, règles UX, checkli
 
 - Écrire **[RE]BELLE** et **[RE]CONFORT** avec crochets. Jamais « Rebelle », « Recharge », « Réconfort » seul comme nom de produit.
 - **Aucun sous-titre sous les noms produits** (interdit : « Beauté & Énergie », « Beauté & Éclat », « Digestif & gourmand », « Gourmand & Équilibre »…). Le nom est suivi du slogan produit ou d'un paragraphe.
-- Allégations autorisées : uniquement « Riche en vitamine C » ([RE]BELLE) et « Riche en fibres » ([RE]CONFORT). Aucune promesse santé/beauté.
+- Allégations autorisées : « Riche en vitamine C » ([RE]BELLE), « Riche en fibres » ([RE]CONFORT) et, à la demande de la cliente, « uniquement le sucre naturellement présent dans les fruits » (allégation encadrée par le règlement CE 1924/2006 : doit rester conforme à la recette). Aucune promesse santé/beauté.
 - [RE]BELLE est à la **framboise** (jamais « fruits des bois », « fraise »).
 - Slogan : « **Votre** bien-être devient un rituel » (jamais « Le bien-être… »).
 - Slogans produits : [RE]BELLE « Le rituel beauté alliant gourmandise et praticité » · [RE]CONFORT « Le rituel doux pour se sentir bien au quotidien ».
 - Vouvoiement. Ton premium accessible, solaire, méditerranéen. Jamais « complément alimentaire pharma ».
 - Pas d'infos d'entreprise réelles (SIRET, adresse) : valeurs génériques fictives.
 - Bandeau « Site de démonstration — aucune commande réelle » en haut et dans le footer.
+- Préparation : « 1 stick dans 250 ml d’eau froide ou chaude, **ou de lait de votre choix** ». Toujours mentionner le lait avec l’eau.
 - Nutri-Score A avec « *Calculé à partir de la boisson reconstituée. » en très petit dessous.
-- Données produit (prix 10,29 € / 10,06 €, DDM 16 / 24 mois, 10 sticks de 18 g, 210 g, 24 boîtes/carton, ingrédients exacts) : **uniquement** dans `src/data/products.ts`.
+- Données produit (prix 10,28 € / 10,18 €, DDM 16 / 24 mois, 10 sticks de 18 g, 210 g, 24 boîtes/carton, ingrédients exacts) : **uniquement** dans `src/data/products.ts`.
 
 Vérification rapide avant livraison :
 ```bash
@@ -63,9 +64,9 @@ Texte sur jaune : **forest**, jamais blanc. Liens texte : `terracotta-dark`. Bou
 
 ## Conventions
 
-- Montants en **centimes** partout ; affichage via `formatPrice()` (fr-FR : `10,29 €`).
+- Montants en **centimes** partout ; affichage via `formatPrice()` (fr-FR : `10,28 €`).
 - Règles fidélité et livraison centralisées dans `src/lib/loyalty.ts` (`LOYALTY`, `SHIPPING`) : 10 pts/€ sur produits après remise (arrondi inférieur), récompenses 250/500/1000 pts, niveaux Découverte/Initié/Vertueux sur le cumul gagné, livraison 4,90 € offerte dès 30 €.
-- Compte démo : `demo@rituelvertueux.fr` / `motdepasse` (`src/data/demo-account.ts`). Historique de 3 commandes, points **calculés** (`ledgerFrom`).
+- Compte démo : `demo@rituelvertueux.fr` / `motdepasse` (`src/data/demo-account.ts`). Historique de 3 commandes, points **calculés** (`ledgerFrom`) : 551 pts, niveau Initié.
 - Images : jamais de `<img>` direct pour les photos → `ResponsiveImage` + `photo('clé')` / `cutout('clé')`. Nouvelle image : ajouter la source dans `scripts/prepare-images.py`, lancer `npm run images:prepare`, compléter `PhotoKey`.
 - GSAP importé seulement dans `components/anim/*` (et chargé dynamiquement pour l'animation panier). Toujours `useGSAP({ scope })` + `gsap.matchMedia()` avec `MEDIA.desktop / mobile / motion`. Animer uniquement `transform` / `opacity`. Le contenu doit rester lisible sans animation.
 - Chaque page appelle `useSeo(titre, description)` (titre et description uniques).

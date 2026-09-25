@@ -16,7 +16,7 @@ Les images retenues sont copiées (et recadrées/détourées si besoin) dans `sr
 | Boîte [RE]BELLE détourée | #02 (studio fond blanc, 975×1613) détouré | `rebelle-box.png` (alpha) |
 | Boîte [RE]CONFORT détourée | #03 (studio fond blanc, 975×1613) détouré | `reconfort-box.png` (alpha) |
 
-Les détourés fournis (`IMG_3426*.png`) sont conformes mais en basse définition (sujet ≈ 340–680 px de large) : remplacés par les versions HD détourées depuis #00–#03.
+Les détourés fournis (`IMG_3426*.png`) sont conformes mais en basse définition (sujet ≈ 340–680 px de large, texte flou) : remplacés par les versions HD détourées depuis #00–#03. Boîtes : détourage par enveloppe convexe (ombre portée exclue), refait en v0.1 après retour cliente.
 
 ## Tableau détaillé
 

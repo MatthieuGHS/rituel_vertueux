@@ -15,7 +15,7 @@ const reMeanings = [
 const values = [
   { title: 'Le plaisir d’abord', text: 'Une boisson fonctionnelle doit d’abord être bonne. Si l’on n’a pas envie d’y revenir, ce n’est pas un rituel.' },
   { title: 'La transparence', text: 'Des listes d’ingrédients lisibles, des pourcentages affichés, des allégations limitées à ce que disent nos étiquettes.' },
-  { title: 'La simplicité', text: 'Un stick, de l’eau, un mélange. Pas de balance, pas de doseur, pas de mode d’emploi compliqué.' },
+  { title: 'La simplicité', text: 'Un stick, de l’eau ou du lait, un mélange. Pas de balance, pas de doseur, pas de mode d’emploi compliqué.' },
 ]
 
 export default function NotreHistoire() {

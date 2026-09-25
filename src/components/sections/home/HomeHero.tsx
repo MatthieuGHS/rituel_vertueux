@@ -31,7 +31,7 @@ export function HomeHero() {
           </h1>
           <p className="hero-fade mt-7 max-w-lg text-lg leading-relaxed text-ink/90 sm:text-xl" data-hero-fade>
             Deux boissons fonctionnelles en sticks, [RE]BELLE et [RE]CONFORT, pour associer plaisir et bien-être au
-            quotidien. Un stick, 250&nbsp;ml d’eau, et c’est prêt.
+            quotidien. Un stick, 250&nbsp;ml d’eau ou de lait de votre choix, et c’est prêt.
           </p>
           <div className="hero-fade mt-9 flex flex-wrap gap-3" data-hero-fade style={{ animationDelay: '620ms' }}>
             <ButtonLink to="/rituels" size="lg">

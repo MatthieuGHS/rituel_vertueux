@@ -12,8 +12,8 @@ const gestures: Array<{ title: string; text: string; image: PhotoKey; alt: strin
     alt: 'Poudre rose s’écoulant d’un stick [RE]BELLE ouvert',
   },
   {
-    title: 'Versez dans 250 ml d’eau',
-    text: 'Froide ou chaude, selon la saison et l’envie.',
+    title: 'Versez dans 250 ml d’eau ou de lait',
+    text: 'Eau ou lait de votre choix, froid ou chaud, selon la saison et l’envie.',
     image: 'reconfort-versement',
     alt: 'Stick [RE]CONFORT versé dans un verre de boisson chocolatée',
   },

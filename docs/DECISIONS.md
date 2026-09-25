@@ -7,7 +7,7 @@ Décisions prises en autonomie pendant la construction de la v0. Celles marquée
 | # | Sujet | Décision | Pourquoi |
 |---|---|---|---|
 | 1 | Sources photos | Les images brutes de `docs/photos/` (~90 Mo) et le brief `.odt` restent hors de git (`.gitignore`). Seuls `INVENTAIRE.md`, les SVG et les images préparées de `src/assets/images/` sont versionnés. | Poids du dépôt, déploiement Vercel plus rapide. `npm run images:prepare` régénère tout depuis les sources locales. |
-| 2 | Détourés | Sticks et boîtes détourés à partir des visuels studio HD (#00–#03) plutôt que les PNG `IMG_3426*` fournis. | Les détourés fournis sont en basse définition (sujet ≤ 680 px). |
+| 2 | Détourés | Sticks et boîtes détourés à partir des visuels studio HD (#00–#03) plutôt que les PNG `IMG_3426*` fournis. Boîtes (v0.1, suite au retour cliente) : masque couleur excluant l’ombre portée grise, enveloppe convexe, tracé anticrénelé ×4 rétracté de 1 px. | Les PNG fournis ont un détourage propre mais sont en basse définition (sujet ≤ 680 px, texte flou) ; la première version automatique laissait des bords déchiquetés à cause de l’ombre portée. |
 | 3 | Mention « Le bien-être devient un rituel. » sur la tranche des boîtes | Visuels de boîtes conservés malgré cette mention (petite, secondaire). Visuels où elle est l'accroche principale écartés (#33, #42, #43…). | Les boîtes sont indispensables aux fiches produits ; aucun visuel de boîte sans cette mention n'existe. **À valider** : packaging à mettre à jour ? |
 | 4 | Logo | Le SVG fourni affiche « LE RITUEL VERTUEUX » (le brief demande d'enlever « LE »). Composant `Logo` recréé : pétales vectoriels **officiels** (repris du SVG) + texte circulaire « RITUEL » / « VERTUEUX » en Fraunces, deux points orange. Variante `mark` (fleur seule) pour le header mobile et le favicon. | Fidélité au packaging actuel. **À valider** : police du texte circulaire (la typo exacte du logo n'a pas été fournie). |
 | 5 | Couleurs du logo | Pétales en corail `#EC7061` et orange `#EB7A25` (couleurs du SVG officiel) plutôt qu'en terracotta unique. | Fidélité à la charte existante. |
@@ -30,6 +30,7 @@ Décisions prises en autonomie pendant la construction de la v0. Celles marquée
 
 | # | Sujet | Décision |
 |---|---|---|
+| 15a | Allégation sucre (v0.1) | Texte de la cliente repris tel quel sur l’accueil (« uniquement le sucre naturellement présent dans les fruits »), coquille « fonctionels » corrigée. **À valider** : allégation encadrée (règlement CE 1924/2006), à confirmer au regard de la recette. |
 | 15 | Descriptions produits, textes des ingrédients, mission, valeurs, moments de consommation | Rédigés pour la v0, sans allégation autre que « Riche en vitamine C » / « Riche en fibres ». |
 | 16 | Recettes | 6 suggestions inventées (latte glacé, infusion rosée, 2 smoothies, chocolat chaud, pétillant). Temps et quantités indicatifs. |
 | 17 | FAQ | Réponse « un stick par jour » inventée (aucune recommandation fournie). |

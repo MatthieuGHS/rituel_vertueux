@@ -16,11 +16,11 @@ export const faq: FaqGroup[] = [
     items: [
       {
         question: 'Comment préparer un stick ?',
-        answer: 'Versez 1 stick de 18 g dans 250 ml d’eau froide ou chaude, puis mélangez. Un shaker ou une gourde fonctionnent aussi très bien.',
+        answer: 'Versez 1 stick de 18 g dans 250 ml d’eau froide ou chaude, ou de lait de votre choix, puis mélangez. Un shaker ou une gourde fonctionnent aussi très bien.',
       },
       {
         question: 'Peut-on utiliser du lait ou une boisson végétale ?',
-        answer: 'Oui. La préparation de référence est à l’eau, mais vous pouvez varier les plaisirs : retrouvez nos idées sur la page Recettes.',
+        answer: 'Oui : chaque stick se dilue dans 250 ml d’eau ou de lait de votre choix, animal ou végétal. Retrouvez d’autres idées sur la page Recettes.',
       },
       {
         question: 'Combien de sticks par jour ?',

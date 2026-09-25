@@ -78,8 +78,8 @@ export function IngredientAssembly() {
             Ce qu’il y a dans un stick
           </h2>
           <p className="mt-5 text-lg text-ink/85">
-            Des fruits, des fleurs, du cacao, des céréales et une touche de plante : dix ingrédients vedettes, dessinés au
-            trait comme sur nos emballages.
+            Liste d’ingrédients courte, uniquement le sucre naturellement présent dans les fruits et des bénéfices
+            fonctionnels.
           </p>
         </div>
 

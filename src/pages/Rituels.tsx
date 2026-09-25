@@ -31,7 +31,7 @@ export default function Rituels() {
         title="Deux rituels, un même geste"
         intro={
           <p>
-            Un stick à diluer dans 250 ml d’eau froide ou chaude. À vous de choisir votre humeur : fruitée et acidulée avec
+            Un stick à diluer dans 250 ml d’eau froide ou chaude, ou de lait de votre choix. À vous de choisir votre humeur : fruitée et acidulée avec
             [RE]BELLE, douce et chocolatée avec [RE]CONFORT.
           </p>
         }

@@ -32,14 +32,14 @@ Site vitrine + boutique fictive (projet d'études). Aucune transaction réelle, 
 - **Panier** Zustand persisté : tiroir latéral (quantités, suppression, sous-total, jauge « Plus que X € pour la livraison offerte »), page panier, compteur dans le header. Livraison 4,90 €, offerte dès 30 € après remise.
 - **Micro-animation d'ajout** : le stick détouré vole jusqu'à l'icône panier (GSAP chargé à la demande), puis le tiroir s'ouvre. Désactivée en reduced-motion.
 - **Compte démo** `demo@rituelvertueux.fr` / `motdepasse` (identifiants affichés sur la page de connexion, bouton « Remplir le formulaire »). Session persistée, déconnexion, routes `/compte/*` protégées avec retour à la page demandée.
-- **Fidélité** (`src/lib/loyalty.ts`) : 10 pts/€ sur les produits après remise ; récompenses 250 (−5 %), 500 (livraison offerte), 1 000 (boîte offerte) ; niveaux Découverte / Initié / Vertueux sur le cumul. Profil Camille Martin : 3 commandes, **545 pts** calculés, niveau Initié, 2 récompenses débloquées.
+- **Fidélité** (`src/lib/loyalty.ts`) : 10 pts/€ sur les produits après remise ; récompenses 250 (−5 %), 500 (livraison offerte), 1 000 (boîte offerte) ; niveaux Découverte / Initié / Vertueux sur le cumul. Profil Camille Martin : 3 commandes, **551 pts** calculés, niveau Initié, 2 récompenses débloquées.
 - **Commande** : coordonnées pré-remplies si connecté, sélecteur de récompense (verrouillées si solde insuffisant), résumé d'erreurs focalisé, numéro `RV-XXXXXX`, points crédités/déduits, panier vidé.
 - **Accessibilité** : lien d'évitement, focus visible, focus déplacé sur le contenu à chaque navigation, dialogues avec piège de focus et Échap, labels visibles, erreurs reliées aux champs, cibles ≥ 44 px, alt en français, reduced-motion respecté (GSAP, Lenis, CSS).
 - **SEO de page** : `<title>` et meta description uniques par page (`useSeo`).
 
 ## 2. Images
 
-37 visuels retenus sur 56 (voir **`docs/photos/INVENTAIRE.md`** : statut, raison d'exclusion et emplacement de chaque fichier). Les 4 détourés (2 sticks, 2 boîtes) ont été produits en HD à partir des visuels studio. 223 fichiers livrés (AVIF + WebP, 3 largeurs), **tous < 250 Ko** (`npm run images:check`).
+37 visuels retenus sur 56 (voir **`docs/photos/INVENTAIRE.md`** : statut, raison d'exclusion et emplacement de chaque fichier). Les 4 détourés (2 sticks, 2 boîtes) ont été produits en HD à partir des visuels studio ; les boîtes sont détourées par enveloppe convexe (bords nets, ombre portée exclue). 223 fichiers livrés (AVIF + WebP, 3 largeurs), **tous < 250 Ko** (`npm run images:check`).
 
 Écartés notamment : roll-up et e-mailing avec sous-titres interdits, visuels « Le bien-être devient un rituel » en accroche, visuel « fruits des bois », flat-lay avec fraises, infographie au packaging non conforme, doublons et documents de travail.
 
@@ -50,7 +50,7 @@ Site vitrine + boutique fictive (projet d'études). Aucune transaction réelle, 
 | `npm run typecheck` / `lint` / `build` / `images:check` | ✅ zéro erreur |
 | Captures Playwright 375 / 768 / 1440 px, 22 routes | ✅ 0 débordement horizontal, 0 erreur console, 0 image cassée |
 | Parcours : panier → commande invité | ✅ |
-| Parcours : connexion démo → récompense « livraison offerte » → commande → solde 545 → 145 pts | ✅ |
+| Parcours : connexion démo → récompense « livraison offerte » → commande → solde recalculé (−500 pts + points gagnés) | ✅ |
 | Déconnexion, route protégée | ✅ redirection vers `/compte/connexion` |
 | Reduced-motion | ✅ pas de pin, pas de Lenis, aucun contenu masqué |
 | Règles de contenu (grep « Beauté & », « Recharge », « Le bien-être devient », « fruits des bois », « fraise ») | ✅ aucune occurrence |
@@ -100,3 +100,10 @@ npx vercel --prod   # production
 ```
 
 Les images sources brutes (`docs/photos/*.png`) ne sont pas versionnées ; les images optimisées nécessaires au build le sont (`src/assets/images/`).
+
+## 7. Retours cliente intégrés (v0.1)
+
+- Prix corrigés : [RE]BELLE **10,28 €**, [RE]CONFORT **10,18 €** (source unique `src/data/products.ts`) ; solde du compte démo recalculé : **551 pts** (niveau Initié inchangé).
+- Accueil, « Ce qu’il y a dans un stick » : texte remplacé par « Liste d’ingrédients courte, uniquement le sucre naturellement présent dans les fruits et des bénéfices fonctionnels. »
+- Préparation : « 250 ml d’eau froide ou chaude, **ou de lait de votre choix** » partout (fiches, Pro, accueil, 3 gestes, gamme, FAQ, recettes, le rituel, notre histoire).
+- Boîtes détourées refaites. Les PNG fournis (`IMG_3426(2)`/`(3)`) ont un détourage propre mais sont trop petits et flous (424 × 728 px, texte du packaging illisible sur les fiches) : ils ne sont pas utilisés. Nouveau détourage depuis les visuels studio HD (975 × 1 613 px) par enveloppe convexe, ombre portée exclue, bords anticrénelés.
