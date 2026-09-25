@@ -13,8 +13,8 @@ Les images retenues sont copiées (et recadrées/détourées si besoin) dans `sr
 | Logo | `RV__Logo_CouleursAplats.svg` (ancienne version « LE RITUEL », texte noir) + logo imprimé sur le packaging (#02) | Composant SVG `Logo` recréé : pétales officiels repris du SVG + texte circulaire « RITUEL / VERTUEUX » comme sur le packaging |
 | Stick [RE]BELLE détouré | #00 (studio fond blanc, 724×2172) détouré par flood-fill | `rebelle-stick.png` (547×2131, alpha) |
 | Stick [RE]CONFORT détouré | #01 (studio fond blanc, 725×2170) détouré | `reconfort-stick.png` (535×2134, alpha) |
-| Boîte [RE]BELLE détourée | #02 (studio fond blanc, 975×1613) détouré | `rebelle-box.png` (alpha) |
-| Boîte [RE]CONFORT détourée | #03 (studio fond blanc, 975×1613) détouré | `reconfort-box.png` (alpha) |
+| Boîte [RE]BELLE détourée | `pngcorrectR.png` (fourni par la cliente, 1179×1693, sujet 958×1612) finalisé par `finish_box_cutout` | `rebelle-box.png` (953×1610, alpha) |
+| Boîte [RE]CONFORT détourée | `pngcorrectJ.png` (fourni par la cliente) finalisé par `finish_box_cutout` | `reconfort-box.png` (954×1610, alpha) |
 
 Les détourés fournis (`IMG_3426*.png`) sont conformes mais en basse définition (sujet ≈ 340–680 px de large, texte flou) : remplacés par les versions HD détourées depuis #00–#03. Boîtes : détourage par enveloppe convexe (ombre portée exclue), refait en v0.1 après retour cliente.
 
@@ -77,6 +77,8 @@ Les détourés fournis (`IMG_3426*.png`) sont conformes mais en basse définitio
 | 52 | IMG_3426(2).png | Boîte détourée (alpha) | [RE]BELLE | Portrait 1179×1693 (sujet 424×728) | ★ | ÉCARTÉ — doublon basse déf. de `rebelle-box.png` | — |
 | 53 | IMG_3426(3).png | Boîte détourée (alpha) | [RE]CONFORT | Portrait 1179×1693 (sujet 398×748) | ★ | ÉCARTÉ — doublon basse déf. de `reconfort-box.png` | — |
 | 54 | IMG_3426.png | Stick détouré (alpha) | [RE]CONFORT | Portrait 1179×1693 (sujet 337×1220) | ★★ | ÉCARTÉ — doublon basse déf. de `reconfort-stick.png` | — |
+| 56 | pngcorrectR.png | Boîte détourée fournie (v0.1), quasi propre : ombre au sol restée opaque, liseré blanc | [RE]BELLE | Portrait 1179×1693 (sujet 958×1612) | ★★★ | OK (finalisé) | `rebelle-box.png` : fiches, boutique, panier, page Pro |
+| 57 | pngcorrectJ.png | Boîte détourée fournie (v0.1), mêmes défauts | [RE]CONFORT | Portrait 1179×1693 (sujet 958×1612) | ★★★ | OK (finalisé) | `reconfort-box.png` |
 | 55 | IMG_3428.jpeg | Boîte sur fond blanc, compressée | [RE]CONFORT | Portrait 440×879 | ★ | ÉCARTÉ — basse résolution, doublon de #03 | — |
 | — | RV__Logo_CouleursAplats.svg | Logo vectoriel, aplats | Marque | 170×178 (vectoriel) | ★★★ | Source (non livré tel quel) — texte « LE RITUEL » obsolète (le packaging et le brief indiquent « RITUEL ») | Pétales repris dans le composant `Logo` |
 | — | RV__Logo_CouleursDegrade.svg | Logo vectoriel, pétales en dégradé | Marque | vectoriel | ★★★ | ÉCARTÉ — même texte obsolète ; version aplats préférée | — |

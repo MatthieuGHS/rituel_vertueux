@@ -49,7 +49,14 @@ export function ResponsiveImage({
 
   return (
     <div
-      className={cn('relative overflow-hidden', layout === 'fill' && 'h-full w-full', className)}
+      className={cn(
+        'relative',
+        // overflow-hidden seulement pour les photos (placeholder flou agrandi) : sur les détourés,
+        // il couperait net l'ombre portée (drop-shadow) aux bords de l'image.
+        lqip && 'overflow-hidden',
+        layout === 'fill' && 'h-full w-full',
+        className,
+      )}
       style={{ ...(layout === 'natural' ? { aspectRatio: `${picture.img.w} / ${picture.img.h}` } : null), ...style }}
     >
       {lqip && (

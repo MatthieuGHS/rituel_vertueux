@@ -3,7 +3,8 @@
 Sources brutes : docs/photos/ (non versionnées). Sorties : src/assets/images/.
 - photos/ : JPEG q90, largeur max 1280 px (vite-imagetools génère ensuite AVIF/WebP).
 - cutouts/ : PNG avec alpha. Sticks : flood-fill depuis les bords (fond studio blanc).
-  Boîtes : masque couleur (l'ombre portée grise est exclue) → enveloppe convexe → tracé anticrénelé.
+  Boîtes : PNG détourés fournis par la cliente (pngcorrectR/J.png), finalisés par finish_box_cutout :
+  suppression des résidus, arêtes redressées (enveloppe convexe), liseré blanc retiré.
 Usage : python3 scripts/prepare-images.py
 """
 import os
@@ -55,7 +56,8 @@ PHOTOS = {
     46: ('reconfort-plaisir', None),
 }
 CUTOUTS = {0: 'rebelle-stick', 1: 'reconfort-stick'}
-BOXES = {2: 'rebelle-box', 3: 'reconfort-box'}
+# Boîtes : PNG fournis par la cliente (docs/photos, non versionnés), finalisés par finish_box_cutout.
+BOXES = {'pngcorrectR.png': 'rebelle-box', 'pngcorrectJ.png': 'reconfort-box'}
 
 def detour(im: Image.Image) -> Image.Image:
     im = im.convert('RGB')
@@ -133,6 +135,67 @@ def detour_box(im: Image.Image, supersample: int = 4, inset: float = 1.2) -> Ima
     return out.crop(alpha.getbbox())
 
 
+def finish_box_cutout(im: Image.Image, supersample: int = 4, inset: float = 1.5, band: int = 3) -> Image.Image:
+    """Termine un détourage de boîte « presque correct ».
+
+    1. Alpha borné par l'enveloppe convexe des pixels de carton (une boîte en 3/4 est convexe) :
+       supprime l'ombre portée restée opaque, les pixels résiduels, et redresse les arêtes.
+    2. Alpha d'origine érodé d'un pixel : retire le liseré de fond blanc.
+    3. Décontamination des couleurs : dans la bande de bord, un pixel plus clair que le carton
+       voisin (fond blanc qui bave) reprend la couleur du carton ; les arêtes sombres restent.
+    """
+    from scipy import ndimage
+
+    rgba = np.asarray(im.convert('RGBA')).astype(np.float32)
+    alpha = rgba[..., 3]
+    h, w = alpha.shape
+    # Seuls les pixels de carton servent à l'enveloppe : l'ombre portée au sol, grise et peu
+    # saturée, est exclue même si elle est opaque dans le fichier fourni.
+    rgb_in = rgba[..., :3]
+    saturation = rgb_in.max(axis=2) - rgb_in.min(axis=2)
+    darker = 250 - rgb_in.mean(axis=2)
+    mask = (alpha > 128) & ((saturation > 30) | (darker > 90))
+    mask = ndimage.binary_opening(mask, iterations=2)
+    labels, count = ndimage.label(mask)
+    if count > 1:
+        sizes = ndimage.sum(mask, labels, range(1, count + 1))
+        mask = labels == (int(np.argmax(sizes)) + 1)
+    ys, xs = np.nonzero(mask)
+    rows = {}
+    for x, y in zip(xs.tolist(), ys.tolist()):
+        lo, hi = rows.get(y, (x, x))
+        rows[y] = (min(lo, x), max(hi, x))
+    pts = [(lo, y) for y, (lo, hi) in rows.items()] + [(hi + 1, y) for y, (lo, hi) in rows.items()]
+    pts += [(lo, y + 1) for y, (lo, hi) in rows.items()] + [(hi + 1, y + 1) for y, (lo, hi) in rows.items()]
+    hull = convex_hull(pts)
+    cx = sum(p[0] for p in hull) / len(hull)
+    cy = sum(p[1] for p in hull) / len(hull)
+    def shrink(p):
+        dx, dy = p[0] - cx, p[1] - cy
+        dist = (dx * dx + dy * dy) ** 0.5 or 1
+        return (p[0] - dx / dist * inset, p[1] - dy / dist * inset)
+    big = Image.new('L', (w * supersample, h * supersample), 0)
+    ImageDraw.Draw(big).polygon([(x * supersample, y * supersample) for x, y in map(shrink, hull)], fill=255)
+    hull_alpha = np.asarray(big.resize((w, h), Image.LANCZOS)).astype(np.float32)
+    eroded = ndimage.grey_erosion(alpha, size=(3, 3))
+    final_alpha = np.minimum(hull_alpha, eroded)
+    # couleurs : pixels « pleins » loin du bord = référence ; le reste prend la couleur du plus proche
+    solid = ndimage.binary_erosion(final_alpha >= 250, iterations=band)
+    _, (iy, ix) = ndimage.distance_transform_edt(~solid, return_indices=True)
+    rgb = rgba[..., :3].copy()
+    edge = ~solid
+    reference = rgb.copy()
+    reference[edge] = rgba[iy[edge], ix[edge], :3]
+    reference = np.stack([ndimage.gaussian_filter(reference[..., c], 1.5) for c in range(3)], axis=-1)
+    # Seuls les pixels de bord plus clairs que le carton voisin (fond blanc qui bave) sont recolorés ;
+    # les traits sombres naturels (arêtes du carton) sont conservés.
+    contaminated = edge & (rgb.mean(axis=2) > reference.mean(axis=2) + 10)
+    rgb[contaminated] = reference[contaminated]
+    out = np.dstack([rgb, final_alpha]).clip(0, 255).astype(np.uint8)
+    result = Image.fromarray(out, 'RGBA')
+    return result.crop(result.getchannel('A').getbbox())
+
+
 for idx, (name, crop) in PHOTOS.items():
     im = Image.open(src(idx)).convert('RGB')
     if crop:
@@ -148,7 +211,7 @@ for idx, name in CUTOUTS.items():
     out.save(os.path.join(OUT, 'cutouts', f'{name}.png'), optimize=True)
     print(name, out.size)
 
-for idx, name in BOXES.items():
-    out = detour_box(Image.open(src(idx)))
+for filename, name in BOXES.items():
+    out = finish_box_cutout(Image.open(os.path.join(SRC, filename)))
     out.save(os.path.join(OUT, 'cutouts', f'{name}.png'), optimize=True)
     print(name, out.size)

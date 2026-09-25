@@ -39,7 +39,7 @@ Site vitrine + boutique fictive (projet d'études). Aucune transaction réelle, 
 
 ## 2. Images
 
-37 visuels retenus sur 56 (voir **`docs/photos/INVENTAIRE.md`** : statut, raison d'exclusion et emplacement de chaque fichier). Les 4 détourés (2 sticks, 2 boîtes) ont été produits en HD à partir des visuels studio ; les boîtes sont détourées par enveloppe convexe (bords nets, ombre portée exclue). 223 fichiers livrés (AVIF + WebP, 3 largeurs), **tous < 250 Ko** (`npm run images:check`).
+37 visuels retenus sur 56 (voir **`docs/photos/INVENTAIRE.md`** : statut, raison d'exclusion et emplacement de chaque fichier). Les 4 détourés (2 sticks, 2 boîtes) ont été produits en HD à partir des visuels studio ; les boîtes proviennent des PNG fournis par la cliente, finalisés (voir DECISIONS n° 2). 223 fichiers livrés (AVIF + WebP, 3 largeurs), **tous < 250 Ko** (`npm run images:check`).
 
 Écartés notamment : roll-up et e-mailing avec sous-titres interdits, visuels « Le bien-être devient un rituel » en accroche, visuel « fruits des bois », flat-lay avec fraises, infographie au packaging non conforme, doublons et documents de travail.
 
@@ -106,4 +106,4 @@ Les images sources brutes (`docs/photos/*.png`) ne sont pas versionnées ; les i
 - Prix corrigés : [RE]BELLE **10,28 €**, [RE]CONFORT **10,18 €** (source unique `src/data/products.ts`) ; solde du compte démo recalculé : **551 pts** (niveau Initié inchangé).
 - Accueil, « Ce qu’il y a dans un stick » : texte remplacé par « Liste d’ingrédients courte, uniquement le sucre naturellement présent dans les fruits et des bénéfices fonctionnels. »
 - Préparation : « 250 ml d’eau froide ou chaude, **ou de lait de votre choix** » partout (fiches, Pro, accueil, 3 gestes, gamme, FAQ, recettes, le rituel, notre histoire).
-- Boîtes détourées refaites. Les PNG fournis (`IMG_3426(2)`/`(3)`) ont un détourage propre mais sont trop petits et flous (424 × 728 px, texte du packaging illisible sur les fiches) : ils ne sont pas utilisés. Nouveau détourage depuis les visuels studio HD (975 × 1 613 px) par enveloppe convexe, ombre portée exclue, bords anticrénelés.
+- Boîtes détourées : PNG fournis par la cliente (`pngcorrectR/J.png`, HD) finalisés (ombre au sol restée opaque retirée, liseré blanc supprimé, arêtes redressées). Cause du « rectangle » visible autour des boîtes corrigée : l’ombre CSS (`drop-shadow`) était coupée par le conteneur de l’image.
