@@ -107,3 +107,8 @@ Les images sources brutes (`docs/photos/*.png`) ne sont pas versionnées ; les i
 - Accueil, « Ce qu’il y a dans un stick » : texte remplacé par « Liste d’ingrédients courte, uniquement le sucre naturellement présent dans les fruits et des bénéfices fonctionnels. »
 - Préparation : « 250 ml d’eau froide ou chaude, **ou de lait de votre choix** » partout (fiches, Pro, accueil, 3 gestes, gamme, FAQ, recettes, le rituel, notre histoire).
 - Boîtes détourées : PNG fournis par la cliente (`pngcorrectR/J.png`, HD) finalisés (ombre au sol restée opaque retirée, liseré blanc supprimé, arêtes redressées). Cause du « rectangle » visible autour des boîtes corrigée : l’ombre CSS (`drop-shadow`) était coupée par le conteneur de l’image.
+
+## 8. v0.2
+
+- Boîtes : PNG détourés fournis par la cliente (`docs/photos/pnged/`), en bonne définition, intégrés tels quels (opacité normalisée, recadrage).
+- Nettoyage : 3 photos jamais affichées retirées du site ; 26 sources non utilisées mises à la corbeille (voir `docs/photos/INVENTAIRE.md`, section « Nettoyage v0.2 »).

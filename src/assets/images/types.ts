@@ -19,7 +19,6 @@ export interface ImageAsset {
 export type PhotoKey =
   | 'duo-cuisine'
   | 'duo-cuisine-portrait'
-  | 'rebelle-box-stick'
   | 'rebelle-collage'
   | 'rebelle-cuisine'
   | 'rebelle-gourde'
@@ -33,7 +32,6 @@ export type PhotoKey =
   | 'rebelle-sport'
   | 'rebelle-studio'
   | 'reconfort-box-stick'
-  | 'reconfort-box-studio'
   | 'reconfort-bureau'
   | 'reconfort-bureau-main'
   | 'reconfort-collage'
@@ -41,7 +39,6 @@ export type PhotoKey =
   | 'reconfort-glace-mer'
   | 'reconfort-gourde'
   | 'reconfort-ingredients-jaune'
-  | 'reconfort-ingredients'
   | 'reconfort-plage'
   | 'reconfort-plaisir'
   | 'reconfort-poudre'
